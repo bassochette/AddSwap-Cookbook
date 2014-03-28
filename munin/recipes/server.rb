@@ -50,12 +50,12 @@ end
 
 include_recipe 'munin::client'
 
-sysadmins = []
-if Chef::Config[:solo]
-  sysadmins = data_bag('users').map { |user| data_bag_item('users', user) }
-else
-  sysadmins = search(:users, 'groups:sysadmin')
-end
+#sysadmins = []
+#if Chef::Config[:solo]
+#  sysadmins = data_bag('users').map { |user| data_bag_item('users', user) }
+#else
+#  sysadmins = search(:users, 'groups:sysadmin')
+#end
 
 if Chef::Config[:solo]
   munin_servers = [node]
