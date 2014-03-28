@@ -126,24 +126,6 @@ directory "#{node['munin']['basedir']}/munin-conf.d" do
   action :create
 end
 
-case node['munin']['server_auth_method']
-when 'openid'
-  if web_srv == :apache
-    include_recipe 'apache2::mod_auth_openid'
-  else
-    fail 'OpenID is unsupported on non-apache installs'
-  end
-else
-  template "#{node['munin']['basedir']}/htpasswd.users" do
-    source 'htpasswd.users.erb'
-    owner  'munin'
-    group  web_group
-    mode   '0644'
-    variables(
-      :sysadmins => sysadmins
-    )
-  end
-end
 
 directory node['munin']['docroot'] do
   owner 'munin'
