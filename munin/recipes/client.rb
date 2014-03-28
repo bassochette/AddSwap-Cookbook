@@ -34,7 +34,7 @@ else
       munin_server_nodes = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
     end
     #munin_server_ips = munin_server_nodes.sort{ |a, b| a['name'] <=> b['name'] }.map{ |n| n['ipaddress'] }
-    munin_server_ips = munin_server_nodes['ipaddress'];
+    munin_server_ips = munin_server_nodes['ipaddress']
   end
 end
 
