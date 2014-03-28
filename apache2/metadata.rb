@@ -50,18 +50,10 @@ recipe            'apache2::mod_xsendfile', 'Apache module "xsendfile"'
 
 depends 'iptables'
 
-supports 'amazon'
-supports 'arch'
-supports 'centos'
-supports 'debian'
-supports 'fedora'
-supports 'freebsd'
-supports 'redhat'
-supports 'scientific'
+
 supports 'ubuntu'
 
 depends 'logrotate'
-depends 'pacman'
 
 attribute 'apache',
           :display_name => 'Apache Hash',

@@ -9,10 +9,5 @@ version           '1.5.0'
 recipe 'logrotate', 'Installs logrotate package'
 provides 'logrotate_app'
 
-supports 'amazon'
-supports 'centos'
-supports 'debian'
-supports 'fedora'
-supports 'redhat'
-supports 'scientific'
+
 supports 'ubuntu'

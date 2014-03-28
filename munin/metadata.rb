@@ -8,13 +8,6 @@ version           '1.4.3'
 
 depends 'apache2', '>= 1.7'
 
-supports 'arch'
-supports 'centos'
-supports 'debian'
-supports 'fedora'
-supports 'freebsd'
-supports 'redhat'
-supports 'scientific'
 supports 'ubuntu'
 
 recipe 'munin', 'Empty, use one of the other recipes'
