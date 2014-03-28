@@ -37,7 +37,7 @@ service_name = node['munin']['service_name']
     
 #  end
 #end
-munin_server_ips = munin_server_nodes['ipaddress']
+munin_server_ips = '127.0.0.1'
 munin_server_ips << '127.0.0.1' unless munin_server_ips.include?('127.0.0.1')
 
 package 'munin-node'
