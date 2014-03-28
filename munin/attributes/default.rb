@@ -19,7 +19,7 @@
 
 default['munin']['sysadmin_email'] = 'julien.prugne@gmail.com'
 default['munin']['server_role'] = 'monitoring'
-default['munin']['server_list'] = nil
+default['munin']['server_list'] = '127.0.0.1'
 default['munin']['server_auth_method'] = ''
 default['munin']['multi_environment_monitoring'] = false
 
