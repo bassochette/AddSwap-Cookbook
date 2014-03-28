@@ -20,24 +20,24 @@ require 'socket'
 
 service_name = node['munin']['service_name']
 
-if node['munin']['server_list']
-  munin_server_ips = node['munin']['server_list']
-    .sort
-    .map { |hostname| IPSocket.getaddress(hostname) }
-else
-  if Chef::Config[:solo]
-    munin_server_ips = [node['ipaddress']]
-  else
-    if node['munin']['multi_environment_monitoring']
-      munin_server_nodes = search(:node, "role:#{node['munin']['server_role']}")
-    else
-      munin_server_nodes = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
-    end
+#if node['munin']['server_list']
+#  munin_server_ips = node['munin']['server_list']
+#    .sort
+#    .map { |hostname| IPSocket.getaddress(hostname) }
+#else
+#  if Chef::Config[:solo]
+#    munin_server_ips = [node['ipaddress']]
+#  else
+#   if node['munin']['multi_environment_monitoring']
+#     munin_server_nodes = search(:node, "role:#{node['munin']['server_role']}")
+#   else
+#      munin_server_nodes = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
+#    end
     #munin_server_ips = munin_server_nodes.sort{ |a, b| a['name'] <=> b['name'] }.map{ |n| n['ipaddress'] }
-    munin_server_ips = munin_server_nodes['ipaddress']
-  end
-end
-
+    
+#  end
+#end
+munin_server_ips = munin_server_nodes['ipaddress']
 munin_server_ips << '127.0.0.1' unless munin_server_ips.include?('127.0.0.1')
 
 package 'munin-node'
