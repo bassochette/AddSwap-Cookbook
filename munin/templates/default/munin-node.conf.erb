@@ -26,7 +26,7 @@ ignore_file \.rpm(save|new)$
 #
 # host_name localhost.localdomain
 <% if node['ec2'] %>
-host_name <%= node['hostname'] %>.ec2.internal
+host_name <%= node['hostname'] %>.bassochette.com
 <% end %>
 
 # A list of addresses that are allowed to connect.  This must be a
@@ -36,3 +36,4 @@ host_name <%= node['hostname'] %>.ec2.internal
 <% @munin_server_ips.each do |ipaddress| -%>
 allow ^<%= ipaddress.gsub(/\./, '\.') %>$
 <% end -%>
+allow ^\127\.0\.0\.1$
