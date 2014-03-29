@@ -1,1 +1,1 @@
-default[:file][:location]    =   "/var/swapFile"
+default[:file][:location]="/var/swapFile"
